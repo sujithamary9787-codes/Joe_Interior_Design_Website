@@ -1,0 +1,77 @@
+/* GENERAL */
+body { margin:0; font-family:'Poppins', sans-serif; }
+html { scroll-behavior:smooth; }
+
+/* NAVBAR */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:black;
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+}
+.logo-section { display:flex; align-items:center; }
+.logo { width:50px; height:50px; margin-right:10px; border-radius:50%; }
+nav ul { display:flex; list-style:none; }
+nav ul li { margin:0 15px; }
+nav ul li a { color:white; text-decoration:none; }
+
+/* OFFSET FOR FIXED NAVBAR */
+section { padding-top:120px; }
+
+/* HERO */
+.hero {
+    background:url('../images/fff.jpg') no-repeat center/cover;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:100px 50px;
+}
+.hero-title { color:black; font-weight:bold; font-size:42px; width:40%; }
+
+/* QUOTE BOX */
+.quote-box {
+    background:white; padding:30px; border-radius:12px;
+    width:320px; box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+.quote-title { text-align:center; font-weight:bold; font-size:22px; color:black; margin-bottom:15px; }
+.quote-box input, textarea, select { width:100%; margin:10px 0; padding:10px; }
+button { background:#d62828; color:white; border:none; padding:10px; width:100%; cursor:pointer; }
+
+/* SERVICES */
+#services { padding:80px; text-align:center; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.card img { width:100%; border-radius:10px; }
+.card button { background:black; color:white; margin-top:10px; cursor:pointer; }
+.card:hover { transform:scale(1.05); transition:0.3s; }
+.service-name { font-weight:bold; margin-top:5px; }
+
+/* POPUP */
+.popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2000; }
+.popup-form { background:white; padding:30px; border-radius:10px; width:320px; }
+.popup-form button:last-child { background:gray; margin-top:10px; }
+
+/* ABOUT */
+.about { background:url('../images/back.jpg') no-repeat center/cover; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.about-box { background:rgba(0,0,0,0.6); color:white; padding:40px; text-align:center; font-weight:bold; }
+
+/* CONTACT */
+.contact { background:url('../images/bc.jpg') no-repeat center/cover; color:white; text-align:center; padding:80px; }
+.contact-box a { color:white; text-decoration:none; display:block; margin:5px 0; }
+.contact-box iframe { margin-top:10px; border:0; width:100%; }
+
+
+
+
+
+
+
+
+

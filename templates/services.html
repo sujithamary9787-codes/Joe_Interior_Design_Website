@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services - Joe Interiors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Joe Interiors</h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Service</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- SERVICES GRID -->
+<section class="services-section">
+
+    <h1 class="services-title">Our Services</h1>
+
+    <div class="grid">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="/static/images/file1.jpg">
+            <h3>Kitchen</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file2.jpg">
+            <h3>Living Room</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file3.jpg">
+            <h3>Study Room</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file4.jpg">
+            <h3>Wardrobe</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file5.jpg">
+            <h3>Pooja Room</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file6.jpg">
+            <h3>Pooja Room</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file7.jpg">
+            <h3>Bathroom</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file8.jpg">
+            <h3>Bedroom</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file9.jpg">
+            <h3>Living Room</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/file10.jpg">
+            <h3>Kitchen</h3>
+            <button onclick="openForm()">Get Quote</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- POPUP FORM -->
+<div id="popup" class="popup">
+
+    <div class="popup-content">
+        <span class="close" onclick="closeForm()">×</span>
+
+        <form action="/submit" method="POST">
+
+            <h2 class="quote-title">GET QUOTED</h2>
+
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="phone" placeholder="Phone No" required>
+
+            <label>Location</label>
+            <div class="radio-group">
+                <input type="radio" name="location" value="Trichy"> Trichy
+                <input type="radio" name="location" value="Chennai"> Chennai
+            </div>
+
+            <textarea name="details" placeholder="Project Details"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+function openForm() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
