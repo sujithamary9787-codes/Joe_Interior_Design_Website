@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.onload = function () {
 
     const services = [
         { title: "Luxury Kitchen", image: "file1.jpg" },
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Creative Study Room", image: "file3.jpg" },
         { title: "Smart Wardrobe", image: "file4.jpg" },
         { title: "Pooja Room", image: "file5.jpg" },
-        { title: "Pooja Room", image: "file6.jpg" }, // ✅ comma added
+        { title: "Pooja Room", image: "file6.jpg" },
         { title: "Modern Bathroom", image: "file7.jpg" }
     ];
 
@@ -62,4 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-});
+};
