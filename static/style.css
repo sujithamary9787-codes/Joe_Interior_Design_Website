@@ -1,0 +1,78 @@
+html { scroll-behavior: smooth; }
+
+/* Contact Highlighted Cards (Look of Image 4) */
+.contact-highlight-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-highlight-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: white;
+}
+
+.icon-circle {
+    background: #fdf6e3;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #b8860b;
+}
+
+/* Service Cards (Look of Image 3) */
+/* Service Card Styling (Image 3 Look) */
+.service-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Black Button under images */
+.service-btn {
+    background: #1a1512;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.service-btn:hover {
+    background: #c2902d; /* Gold hover */
+}
+
+/* Highlighted Contact Cards (Image 4 Look) */
+.contact-highlight-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+

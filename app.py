@@ -1,76 +1,47 @@
-from flask import Flask, render_template, request, redirect, flash
+import os
+from flask import Flask, render_template, request, redirect
 import smtplib
-from email.mime.text import MIMEText
+from email.message import EmailMessage
 
 app = Flask(__name__)
-app.secret_key = "secret"  # needed for flash messages
 
-# Email credentials
-EMAIL = "wilsonjerome8940@gmail.com"      # Replace with your Gmail
-PASSWORD = "babo onyh naow jpyi"    # Gmail App password
+# --- CONFIGURATION ---
+SENDER_EMAIL = "wilsonjerome8940@gmail.com" 
+# Use the 16-character code from Google App Passwords
+APP_PASSWORD = "babo onyh naow jpyi" 
+RECIPIENT_EMAIL = "wilsonjerome8940@gmail.com"
 
-# ------------------- ROUTES -------------------
-
-# Home page
 @app.route('/')
-def home():
-    return render_template('home.html')  # Separate home.html
+def index():
+    return render_template('index.html')
 
-# Services page
-@app.route('/services')
-def services():
-    return render_template('services.html')  # Separate services.html
+@app.route('/send_quote', methods=['POST'])
+def send_quote():
+    name = request.form.get('name')
+    phone = request.form.get('phone')
+    location = request.form.get('location')
+    details = request.form.get('details')
 
-# About page
-@app.route('/about')
-def about():
-    return render_template('about.html')  # Separate about.html
+    msg = EmailMessage()
+    msg.set_content(f"New Inquiry Received:\n\nName: {name}\nPhone: {phone}\nLocation: {location}\nDetails: {details}")
+    msg['Subject'] = f"Joe Interiors Inquiry - {name}"
+    msg['From'] = SENDER_EMAIL
+    msg['To'] = RECIPIENT_EMAIL
 
-# Contact page
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')  # Separate contact.html
-
-# Handle GET QUOTE form submission (used on all pages)
-@app.route('/submit', methods=['POST'])
-def submit():
     try:
-        name = request.form['name']
-        phone = request.form['phone']
-        location = request.form['location']
-        details = request.form['details']
-
-        # Create email
-        msg = MIMEText(f"""
-New Quote Request
-
-Name: {name}
-Phone: {phone}
-Location: {location}
-Details: {details}
-        """)
-        msg['Subject'] = "New Interior Quote"
-        msg['From'] = EMAIL
-        msg['To'] = EMAIL
-
-        # Send email
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        server.login(EMAIL, PASSWORD)
-        server.send_message(msg)
-        server.quit()
-
-        flash("Quote Successfully!")
-
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login(SENDER_EMAIL, APP_PASSWORD)
+            smtp.send_message(msg)
+        return redirect('/')
     except Exception as e:
-        print(e)
-        flash("Error sending quotes, try again")
+        return f"Error: {e}"
 
-    # Return back to the referring page
-    return redirect(request.referrer or '/')
-
-# Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT",
+5000))
+    app.run(host='0.0.0.0',port=port)
+
+
 
 
 

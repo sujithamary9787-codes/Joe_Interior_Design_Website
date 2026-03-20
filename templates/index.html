@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Interiors | Premium Design</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .contact-card { transition: all 0.3s ease; }
+        .contact-card:hover { transform: translateY(-5px); background: white; }
+        /* Style for the new Service Button */
+        .service-btn {
+            background-color: #c2902d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: background 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .service-btn:hover {
+            background-color: #1a1512;
+        }
+    </style>
+</head>
+<body class="bg-[#fdfcf0] font-serif text-[#1a1512]">
+
+    <nav class="fixed w-full z-50 bg-[#1a1512]/95 text-white p-4 flex justify-between items-center px-6 md:px-20">
+        <div class="flex items-center gap-3">
+            <img src="{{ url_for('static', filename='images/top.jpg') }}" alt="Logo" class="h-10 w-10 rounded-full object-cover border border-amber-500">
+            <div class="text-xl md:text-2xl font-bold italic tracking-tight">Joe Interiors</div>
+        </div>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em]">
+            <a href="#home" class="hover:text-amber-500 transition">Home</a>
+            <a href="#services" class="hover:text-amber-500 transition">Service</a>
+            <a href="#about" class="hover:text-amber-500 transition">About Us</a>
+            <a href="#contact" class="hover:text-amber-500 transition">Contact Info</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-20 bg-cover bg-center pt-24 pb-12" style="background-image: url('{{ url_for('static', filename='images/ff.jpeg') }}');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        
+        <div class="relative z-10 max-w-xl text-center md:text-left mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-7xl text-white font-bold leading-tight">Bringing life, color and comfort to your space</h1>
+        </div>
+
+        <div class="relative z-10 bg-white p-8 rounded-2xl shadow-2xl w-full max-w-[420px]">
+            <h2 class="text-2xl md:text-3xl mb-6 text-center italic border-b pb-4">Get Quoted</h2>
+            <form action="/send_quote" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Name" class="w-full p-3 border-b border-gray-300 outline-none focus:border-amber-600" required>
+                <input type="text" name="phone" placeholder="Phone No" class="w-full p-3 border-b border-gray-300 outline-none focus:border-amber-600" required>
+                <select name="location" class="w-full p-3 border-b border-gray-300 outline-none bg-transparent" required>
+                    <option value="" disabled selected>Select Location</option>
+                    <option value="Trichy">Trichy</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+                <textarea name="details" placeholder="Project Details" class="w-full p-3 border-b border-gray-300 outline-none h-24" required></textarea>
+                <button type="submit" class="w-full bg-[#c2902d] text-white py-4 font-bold uppercase tracking-widest hover:bg-black transition rounded-lg">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-[#f4f1ea] px-6 md:px-20 text-center">
+        <h2 class="text-4xl md:text-5xl italic mb-12">Our Services</h2>
+        <div id="serviceGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <section id="about" class="relative py-24 h-screen flex items-center justify-center bg-cover bg-fixed bg-center px-6" style="background-image: url('{{ url_for('static', filename='images/back.jpeg') }}');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 max-w-4xl bg-white/10 backdrop-blur-xl p-8 md:p-16 text-white text-center rounded-2xl border border-white/20">
+            <h2 class="text-4xl md:text-5xl italic mb-8">About Us</h2>
+            <p class="text-base md:text-xl leading-relaxed font-light opacity-90">
+                At Joe Interior Design, we believe that every space has a story waiting to be told. Our mission 
+                is to transform ordinary interiors into extraordinary environments that reflect personality, 
+                functionality, and timeless style. With a passion for creativity and attention to detail, we 
+                design spaces that are not only visually stunning but also comfortable and practical for everyday
+                living.Founded on the principles of innovation and quality, Joe Interior Design offers a full 
+                range of interior solutions—from residential makeovers to commercial projects. Whether it’s a
+                modern apartment, a luxury villa, or a professional workspace, we tailor every design to meet
+                our clients’ unique tastes and needs.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 flex flex-col items-center justify-center p-6 bg-cover bg-center relative" style="background-image: url('{{ url_for('static', filename='images/bc.jpeg') }}');">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <h2 class="relative z-10 text-4xl md:text-5xl italic text-white mb-12">Contact Info</h2>
+        
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl mb-12">
+            <a href="https://wa.me/916380292586" target="_blank" class="contact-card bg-white/80 backdrop-blur p-6 rounded-xl flex items-center gap-5 shadow-lg">
+                <div class="text-3xl">💬</div>
+                <div><p class="text-xs uppercase font-bold opacity-60">WhatsApp</p><p class="text-lg font-bold">+91 6380292586</p></div>
+            </a>
+            <a href="mailto:wilsonjerome8940@gmail.com" class="contact-card bg-white/80 backdrop-blur p-6 rounded-xl flex items-center gap-5 shadow-lg">
+                <div class="text-3xl">✉️</div>
+                <div><p class="text-xs uppercase font-bold opacity-60">Email</p><p class="text-lg font-bold">wilsonjerome8940@gmail.com</p></div>
+            </a>
+            <a href="https://www.instagram.com/the_joe_interior_designs" target="_blank" class="contact-card bg-white/80 backdrop-blur p-6 rounded-xl flex items-center gap-5 shadow-lg">
+                <div class="text-3xl">📸</div>
+                <div><p class="text-xs uppercase font-bold opacity-60">Instagram</p><p class="text-lg font-bold">@the_joe_interior_designs</p></div>
+            </a>
+            <div class="contact-card bg-white/80 backdrop-blur p-6 rounded-xl flex items-center gap-5 shadow-lg text-left">
+                <div class="text-3xl">📍</div>
+                <div><p class="text-xs uppercase font-bold opacity-60">Address</p><p class="text-sm font-bold leading-tight">SMBS Complex, Alampatti road, Trichy -12</p></div>
+            </div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-5xl h-64 md:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.6!3d10.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ4JzAwLjAiTiA3OMKwMzYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
