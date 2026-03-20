@@ -23,8 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "file5.jpg" 
         },
         { 
-            title: "Office Space", 
+            title: "Pooja Room", 
             image: "file6.jpg" 
+        }
+        { 
+            title: "Modern Bathroom", 
+            image: "file7.jpg" 
         }
     ];
 
