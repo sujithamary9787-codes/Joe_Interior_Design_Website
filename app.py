@@ -8,7 +8,7 @@ app = Flask(__name__)
 # --- CONFIGURATION ---
 SENDER_EMAIL = "wilsonjerome8940@gmail.com" 
 # Use the 16-character code from Google App Passwords
-APP_PASSWORD = "babo onyh naow jpyi" 
+APP_PASSWORD = os.environ.get("APP_PASSWORD")
 RECIPIENT_EMAIL = "wilsonjerome8940@gmail.com"
 
 @app.route('/')
